@@ -14,6 +14,7 @@ import image5 from "../../assets/images/brand/hp.avif";
 import image6 from "../../assets/images/brand/msi.avif"
 import NavbarComponent from "../../component/front/navbar.component";
 import SingleGridComponent from "../../component/product/single-grid.component";
+import { NavLink } from "react-router-dom";
 
 const HomePageLayout = () => {
     const settings = {
@@ -49,12 +50,16 @@ const HomePageLayout = () => {
                 <Row className="my-3">
                     <Col sm={12} md={6} lg={2}>
                         <Card>
-                            <Card.Img variant="top" src={image1} />
+                            <NavLink to="/brand/accer">
+                                <Card.Img variant="top" src={image1} />
+                            </NavLink>
                         </Card>
                     </Col>
                     <Col sm={12} md={6} lg={2}>
                         <Card>
-                            <Card.Img variant="top" src={image2} />
+                            <NavLink to="/brand/asus">
+                                <Card.Img variant="top" src={image2} />
+                            </NavLink>
                         </Card>
                     </Col>
                     <Col sm={12} md={6} lg={2}>

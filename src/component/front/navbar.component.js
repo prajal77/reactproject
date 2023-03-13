@@ -1,19 +1,30 @@
-import { Container, Navbar, Nav, Image, Form } from "react-bootstrap";
+import { Container, Navbar, Nav, Image, Form, Row, Col } from "react-bootstrap";
 import logo from "../../assets/images/logo.png";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaShoppingCart, FaTwitter, FaYoutube } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 const NavbarComponent = () => {
     return (<>
+        <Navbar bg="white" variant="white" className="py-1">
+            <Container>
+                <Row>
+                    <Col className="mx-0"><a target={"_blank"} rel="noreferrer" href="https://www.facebook.com/"><FaFacebook /></a></Col>
+                    <Col className="mx-0" bg="danger"><a target={"_blank"} rel="noreferrer" href="https://www.instagram.com/"><FaInstagram /></a></Col>
+                    <Col className="mx-0" bg="danger"><a target={"_blank"} rel="noreferrer" href="https://twitter.com/"><FaTwitter /></a></Col>
+                    <Col className="mx-0" bg="danger"><a target={"_blank"} rel="noreferrer" href="https://youtube.com/"><FaYoutube /></a></Col>
+                </Row>
+            </Container>
+        </Navbar>
         <Navbar bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home"  >
+                <NavLink href="/" className={"nav-brand"} >
                     <Image src={logo} style={{ maxHeight: "70px", width: "70px" }} />
-                </Navbar.Brand>
+                </NavLink>
 
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Categories</Nav.Link>
-                    <Nav.Link href="#brands">Brands</Nav.Link>
-                    <Nav.Link href="#products">Products</Nav.Link>
+                    <NavLink className={"nav-link"} to="/" >Home</NavLink>
+                    <NavLink className={"nav-link"} to="/category" >Categories</NavLink>
+                    <NavLink className={"nav-link"} to="/brand" >Brands</NavLink>
+                    <NavLink className={"nav-link"} to="/products" >Products</NavLink>
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control
@@ -27,12 +38,12 @@ const NavbarComponent = () => {
                     <Nav.Link href="#cart">
                         <FaShoppingCart size={30} />
                     </Nav.Link>
-                    <Nav.Link href="/login">
+                    <NavLink className={"nav-link"} to="/login">
                         Login
-                    </Nav.Link>
-                    <Nav.Link href="/register">
+                    </NavLink>
+                    <NavLink to="/register" className={"nav-link"}>
                         Register
-                    </Nav.Link>
+                    </NavLink>
 
                 </Nav>
             </Container>
